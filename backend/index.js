@@ -5,13 +5,16 @@ import bodyParser from "body-parser";
 
 const app = express();
 // app.use(cors());
+
 app.use(cors({
-  origin: "https://stock-market-website-nine.vercel.app/", // allow your frontend
+  origin: "https://stock-market-website-nine.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true
 }));
 app.use(bodyParser.json());
 
 // Contact Form API
-app.post("/api/contact", async (req, res) => {
+app.post("/contact", async (req, res) => {
   const { name, contact, email, message } = req.body;
 
   try {
