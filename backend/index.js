@@ -4,7 +4,10 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "https://stock-market-website-nine.vercel.app/", // allow your frontend
+}));
 app.use(bodyParser.json());
 
 // Contact Form API

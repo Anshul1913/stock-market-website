@@ -11,7 +11,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch("http://localhost:5000/api/contact", {
+      let response = await fetch("https://stock-market-website-znyg.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
@@ -26,6 +26,8 @@ const ContactForm = () => {
       }
     } catch (error) {
       setStatus("⚠️ Error occurred.");
+      console.log("Error:", error);
+      
     }
   };
 
