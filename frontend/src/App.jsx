@@ -7,14 +7,21 @@ import Testimonials from './components/Testimonial';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Benefits from './components/Benifits';
+import Instructors from './components/Instructor';
+import FAQ from './components/Faq';
+import Gallery from './components/Gallery';
 function App() {
   return (
-    <div>
+    <div div  className="bg-gray-900 text-white font-body">
       <Navbar />
       <Hero />
       <About />
        <Benefits /> 
-      <Courses />
+      {/* <Courses /> */}
+      <Instructors />
+      <Gallery />
+      {/* <FAQ /> */}
+
       <Testimonials />
       <ContactForm />
       <Footer />
