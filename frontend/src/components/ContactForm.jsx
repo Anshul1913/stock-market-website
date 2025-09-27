@@ -150,7 +150,7 @@ const ContactForm = () => {
               name="contact"
               value={form.contact}
               onChange={handleChange}
-              placeholder=" Contact number"
+              placeholder=" "
               className="peer w-full bg-white text-blue-500 border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
             />
             
