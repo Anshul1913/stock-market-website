@@ -1,12 +1,7 @@
 // import React, { useState } from "react";
 
 // const ContactForm = () => {
-//   const [form, setForm] = useState({ name: "", contact: "", email: "", message: "" });
-//   const [status, setStatus] = useState("");
-
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
+ 
 
  
 
@@ -68,16 +63,12 @@
 import React, { useState } from "react";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-   const [status, setStatus] = useState("");
+   const [form, setForm] = useState({ name: "", contact: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
 
-  const handleChange = (e) =>
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -88,6 +79,8 @@ const ContactForm = () => {
       });
 
       let result = await response.json();
+      console.log(result);
+      
       if (result.success) {
         setStatus("✅ Message sent successfully!");
         setForm({ name: "", contact: "", email: "", message: "" });
@@ -101,7 +94,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <section id="contact" className="py-16 bg-blue-50" data-aos="fade-up">
+    <section id="contact" className="py-16  bg-blue-50" data-aos="fade-up">
       <div className="max-w-3xl mx-auto px-6">
         <h2
           className="font-heading text-3xl lg:text-4xl text-blue-900 text-center mb-12"
@@ -119,62 +112,64 @@ const ContactForm = () => {
         >
           {/* Name Field */}
           <div className="relative" data-aos="fade-up" data-aos-delay="300">
+            <label className="text-blue-500"> name</label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder=" "
-              className="peer w-full bg-white border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
+              className="peer w-full bg-white text-blue-500 border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
             />
-            <label className="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm">
-              Your Name
-            </label>
+            
           </div>
 
           {/* Email Field */}
           <div className="relative" data-aos="fade-up" data-aos-delay="400">
+            <label className="text-blue-500">
+              Your Email
+            </label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder=" "
-              className="peer w-full bg-white border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
+              className="peer w-full bg-white border text-blue-500 border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
             />
-            <label className="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm">
-              Your Email
-            </label>
+            
           </div>
 
           {/* Subject Field */}
           <div className="relative" data-aos="fade-up" data-aos-delay="500">
-            <input
-              type="text"
-              name="subject"
-              value={form.subject}
-              onChange={handleChange}
-              placeholder=" "
-              className="peer w-full bg-white border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
-            />
-            <label className="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm">
-              Subject
+             <label className="text-blue-500">
+              Contact number
             </label>
+            <input
+              type="number"
+              name="contact"
+              value={form.contact}
+              onChange={handleChange}
+              placeholder=" Contact number"
+              className="peer w-full bg-white text-blue-500 border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition"
+            />
+            
           </div>
 
           {/* Message Field */}
           <div className="relative" data-aos="fade-up" data-aos-delay="600">
+             <label className="text-blue-500">
+              Message
+            </label>
             <textarea
               name="message"
               rows="5"
               value={form.message}
               onChange={handleChange}
               placeholder=" "
-              className="peer w-full bg-white border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition resize-none"
+              className="peer w-full bg- text-blue-500 border border-blue-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 outline-none transition resize-none"
             />
-            <label className="absolute left-4 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm">
-              Message
-            </label>
+            
           </div>
 
           {/* Submit Button */}
