@@ -72,7 +72,7 @@ const ContactForm = () => {
  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch("https://traders-profit-club.onrender.com/contact", {
+      let response = await fetch("https://stock-market-website-oo19.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
