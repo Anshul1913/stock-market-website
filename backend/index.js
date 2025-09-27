@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 const app = express();
 
 app.use(cors({
-  origin: "https://traders-profit-club.vercel.app/",
+  origin: "https://traders-profit-club.vercel.app",
   methods: ["GET", "POST"],
   credentials: true
 }));
