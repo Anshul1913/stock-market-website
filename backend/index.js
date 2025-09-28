@@ -14,8 +14,10 @@ app.use(bodyParser.json());
 
 // Contact Form API
 app.post("/contact", async (req, res) => {
+  console.log("Received contact form submission:", req.body);  
   const { name, email, subject, message } = req.body;
-
+  console.log(process.env.FORMSUBMIT_EMAIL);
+  
   try {
     // Formsubmit endpoint
     const formsubmitEndpoint = `https://formsubmit.co/ajax/${process.env.FORMSUBMIT_EMAIL}`;
