@@ -64,35 +64,48 @@ import React, { useState } from "react";
 
 const ContactForm = () => {
    const [form, setForm] = useState({ name: "", contact: "", email: "", message: "" });
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      let response = await fetch("https://stock-market-website-zh6a.onrender.com/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
+  e.preventDefault();
 
-      let result = await response.json();
-      console.log(result);
+  const phoneNumber = "917489817271"; // International format
+  const message = `Hi, my name is ${form.name}. Contact: ${form.contact}. Email: ${form.email}. Message: ${form.message}`;
+  const encodedMessage = encodeURIComponent(message);
+
+  // Open WhatsApp
+  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+
+  // Optionally reset the form
+  setForm({ name: "", contact: "", email: "", message: "" });
+  // setStatus("Opening WhatsApp...");
+};
+    // e.preventDefault();
+    // try {
+    //   let response = await fetch("https://stock-market-website-zh6a.onrender.com/contact", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(form)
+    //   });
+
+    //   let result = await response.json();
+    //   console.log(result);
       
-      if (result.success) {
-        setStatus("✅ Message sent successfully!");
-        setForm({ name: "", contact: "", email: "", message: "" });
-      } else {
-        setStatus("❌ Failed to send message.");
-      }
-    } catch (error) {
-      setStatus("⚠️ Error occurred.");
-      console.log("Error:", error);
+    //   if (result.success) {
+    //     setStatus("✅ Message sent successfully!");
+    //     setForm({ name: "", contact: "", email: "", message: "" });
+    //   } else {
+    //     setStatus("❌ Failed to send message.");
+    //   }
+    // } catch (error) {
+    //   setStatus("⚠️ Error occurred.");
+    //   console.log("Error:", error);
 
-    }
-  };
+    // }
+  // };
   return (
     <section id="contact" className="py-16  bg-blue-50" data-aos="fade-up">
       <div className="max-w-3xl mx-auto px-6">
