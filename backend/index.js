@@ -6,6 +6,7 @@ import nodemailer from "nodemailer";
 
 const allowedOrigins = [
   "https://traders-profit-club-ratlam-kk2obvskr.vercel.app",
+  "https://traders-profit-club-ratlam.vercel.app",
   "http://localhost:5173"
 ];
 const app = express();
