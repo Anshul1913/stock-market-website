@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
 
 const allowedOrigins = [
-  "https://traders-profit-club.vercel.app",
+  "https://traders-profit-club-ratlam-cq5l82dz6.vercel.app",
   "http://localhost:5173"
 ];
 const app = express();
