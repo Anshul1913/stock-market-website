@@ -4,11 +4,23 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
 
+const allowedOrigins = [
+  "https://traders-profit-club.vercel.app",
+  "http://localhost:5173"
+];
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "https://traders-profit-club.vercel.app", // your frontend
+   origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps, Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
   methods: ["GET", "POST"],
   credentials: true
 }));
