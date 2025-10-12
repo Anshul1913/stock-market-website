@@ -81,7 +81,7 @@ export default function Hero() {
       </motion.p>
 
       <motion.a
-        href="#courses"
+        href="#contact"
         className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
